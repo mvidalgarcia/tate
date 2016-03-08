@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1 #{artist.fc}
+  p #{artist.gender}
+
+  if artist.birth
+    if artist.birth.place && artist.birth.time
+      p Born in #{artist.birth.place.name} in #{artist.birth.time.startYear}
+    else if artist.birth.time
+      p Born in #{artist.birth.time.startYear}
+
+  if artist.death
+    if artist.death.place && artist.death.time
+      p Died in #{artist.death.place.name} in #{artist.death.time.startYear}
+    else if artist.death.time
+      p Born in #{artist.death.time.startYear}
+
+  if artist.totalWorks
+    p Total works: #{artist.totalWorks}
+
+  if artist.movements.length > 0
+    | Movements:
+    ul
+      each movement in artist.movements
+        li Era #{movement.era.name} name #{movement.name}
+
+  a(href="#{artist.url}") More info

@@ -2,6 +2,12 @@ extends layout
 
 block content
   h1= title
+  | From
+  input#inputFrom(type='number', name='from', placeholder='YYYY', value="#{from}")
+  | To
+  input#inputTo(type='number', name='to', placeholder='YYYY', value="#{to}")
+  button#btnSearch(href="#") Go!
   ul
     each artist in artists
-      li #{artist.fc}, born in #{artist.birth.place.name}
+      li
+        a(href="/artist/#{artist.id}") #{artist.fc} #{artist.birthYear}

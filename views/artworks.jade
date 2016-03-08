@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1= title
+  ul
+    each artwork in artworks
+      li #{artwork.title}
