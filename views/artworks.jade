@@ -2,6 +2,9 @@ extends layout
 
 block content
   h1= title
-  ul
-    each artwork in artworks
-      li #{artwork.title}
+  #artworks
+    ul
+      each artwork in artworks
+        li #{artwork.title}
+
+    button#btnPagination(data-lastid="#{last_id}") More

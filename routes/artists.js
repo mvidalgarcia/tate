@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-
 /* GET all artists. */
 router.get('/', function(req, res, next) {
   var db = req.db;

@@ -23,6 +23,6 @@ block content
     | Movements:
     ul
       each movement in artist.movements
-        li Era #{movement.era.name} name #{movement.name}
+        li Era #{movement.era.name}, #{movement.name}
 
   a(href="#{artist.url}") More info

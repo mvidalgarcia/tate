@@ -2,6 +2,8 @@
 // DOM Ready =============================================================
 $(document).ready(function() {
     $('#btnSearch').on('click', filterArtists);
+
+    $('#artworks').on('click', 'button#btnPagination', loadArtworks)
 });
 
 // Functions =============================================================
@@ -31,4 +33,29 @@ function filterArtists(event) {
       }
     }
 
+};
+
+/*
+  Load more artwork (pagination) via AJAX
+*/
+function loadArtworks(event) {
+  event.preventDefault();
+  // Empty content string
+  var content = '';
+
+  // Retrieve last artwork id from data-attribute
+  var last_id = $('button#btnPagination').data('lastid');
+
+  // Request more artworks
+  $.getJSON( '/artworks/api?limit=100&lastid='+last_id, function( data ) {
+    $.each(data, function(){
+          content += '<li>' + this.title + '</li>'
+    });
+    // Inject the whole content string into existing HTML list
+    $('#artworks ul').append(content);
+
+    // Update last id data-attribute in button
+    last_id = data[data.length-1].id;
+    $('button#btnPagination').data('lastid', last_id);
+  });
 };

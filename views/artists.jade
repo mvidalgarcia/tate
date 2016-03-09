@@ -2,11 +2,11 @@ extends layout
 
 block content
   h1= title
-  | From
+  | Birth year: From
   input#inputFrom(type='number', name='from', placeholder='YYYY', value="#{from}")
   | To
   input#inputTo(type='number', name='to', placeholder='YYYY', value="#{to}")
-  button#btnSearch(href="#") Go!
+  button#btnSearch(type="submit") Go!
   ul
     each artist in artists
       li
