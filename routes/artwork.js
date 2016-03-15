@@ -8,6 +8,7 @@ router.get('/:id', function(req, res, next) {
   var artwork_id = parseInt(req.params.id);
   collection.findOne({id: {$eq: artwork_id}},{},function(e, docs){
     res.render('artwork', {
+        "title" : "Tate - Artwork",
         "artwork" : docs
     });
   });

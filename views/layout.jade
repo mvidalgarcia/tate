@@ -6,14 +6,18 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     header
-      h1 Tate
-      ul
+      h1 TATE
+      ul.menu
         li
           a(href='/') Home
         li
           a(href='/artists') Artists
         li
           a(href='/artworks') Artworks
-    block content
+    .wrapper
+      block content
     script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
     script(src='/javascripts/global.js')
+
+    footer
+      a(href="http://mvidalgarcia.com") &lt;/&gt; with (L) by @mvidalgarcia

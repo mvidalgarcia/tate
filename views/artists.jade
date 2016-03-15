@@ -7,7 +7,8 @@ block content
   | To
   input#inputTo(type='number', name='to', placeholder='YYYY', value="#{to}")
   button#btnSearch(type="submit") Go!
-  ul
-    each artist in artists
-      li
-        a(href="/artist/#{artist.id}") #{artist.fc} #{artist.birthYear}
+  #artists
+    ul
+      each artist in artists
+        li
+          a(href="/artist/#{artist.id}") #{artist.fc} #{artist.birthYear}

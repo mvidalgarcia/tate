@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
           var parsed = JSON.parse(body);
           var last_id = parsed[parsed.length-1].id;
           res.render('artworks', {
-              "title": "Artworks",
+              "title": "Tate - Artworks",
               "artworks" : parsed,
               "last_id" : last_id
           });
@@ -69,7 +69,7 @@ router.get('/api/from/:from/to/:to', function(req, res, next) {
     collection.find({acquisitionYear: {$gte: from_year, $lte: to_year}, id: {$gt: last_id}},{limit: limit, sort: {id: 1}}, function(e, docs){
       res.json(docs);
     });
-  }  
+  }
 });
 
 module.exports = router;

@@ -1,4 +1,10 @@
 extends layout
 
 block content
-  p Welcome to #{title}
+  p.welcome Welcome to
+  img(src='/images/tate-logo-black.png', class="tate-logo")
+  ul.home-buttons
+    li
+      a(href='/artists') ARTISTS
+    li
+      a(href='/artworks') ARTWORKS

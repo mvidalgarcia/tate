@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   var collection = db.get('artists');
   collection.find({},{sort: {fc: 1}},function(e, docs){
     res.render('artists', {
-        "title": "Artists",
+        "title": "Tate - Artists",
         "artists" : docs
     });
   });

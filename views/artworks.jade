@@ -7,10 +7,8 @@ block content
   | To
   input#inputToArtworks(type='number', name='to', placeholder='YYYY', value="#{to}")
   button#btnSearchArtworks(type="submit") Go!
-  #artworks
+  #artworks(data-lastid="#{last_id}")
     ul
       each artwork in artworks
         li
-          a(href="/artwork/#{artwork.id}") #{artwork.title} #{artwork.acquisitionYear}
-
-    button#btnPagination(data-lastid="#{last_id}") More
+          a(href="/artwork/#{artwork.id}") #{artwork.title} (#{artwork.acquisitionYear})
