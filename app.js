@@ -13,6 +13,7 @@ var db = monk('localhost:27017/tate');
 var routes = require('./routes/index');
 var artist = require('./routes/artist');
 var artists = require('./routes/artists');
+var artwork = require('./routes/artwork');
 var artworks = require('./routes/artworks');
 
 var app = express();
@@ -37,6 +38,7 @@ app.use(function(req, res, next) {
 app.use('/', routes);
 app.use('/artist', artist);
 app.use('/artists', artists);
+app.use('/artwork', artwork);
 app.use('/artworks', artworks);
 
 // catch 404 and forward to error handler

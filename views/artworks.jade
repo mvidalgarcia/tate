@@ -2,9 +2,15 @@ extends layout
 
 block content
   h1= title
+  | Acquisition year: From
+  input#inputFromArtworks(type='number', name='from', placeholder='YYYY', value="#{from}")
+  | To
+  input#inputToArtworks(type='number', name='to', placeholder='YYYY', value="#{to}")
+  button#btnSearchArtworks(type="submit") Go!
   #artworks
     ul
       each artwork in artworks
-        li #{artwork.title}
+        li
+          a(href="/artwork/#{artwork.id}") #{artwork.title} #{artwork.acquisitionYear}
 
     button#btnPagination(data-lastid="#{last_id}") More

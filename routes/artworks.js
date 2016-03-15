@@ -54,4 +54,22 @@ router.get('/api', function(req, res, next) {
   });
 });
 
+/*
+  REST API Filter artworks by acquisition year range
+  example: /artworks/api/from/1950/to/1980?limit=10&lastid=123
+*/
+router.get('/api/from/:from/to/:to', function(req, res, next) {
+  var db = req.db;
+  var limit = parseInt(req.query.limit);
+  var last_id = parseInt(req.query.lastid);
+  if ((!isNaN(parseInt(req.params.from))) && (!isNaN(parseInt(req.params.to)))) {
+    var from_year = parseInt(req.params.from);
+    var to_year = parseInt(req.params.to);
+    var collection = db.get('artworks');
+    collection.find({acquisitionYear: {$gte: from_year, $lte: to_year}, id: {$gt: last_id}},{limit: limit, sort: {id: 1}}, function(e, docs){
+      res.json(docs);
+    });
+  }  
+});
+
 module.exports = router;
