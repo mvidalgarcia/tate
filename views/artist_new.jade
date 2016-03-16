@@ -1,0 +1,56 @@
+extends layout
+
+block content
+  .artist-content
+    h1 #{artist.fc}
+
+    table
+      tr
+        th Property
+        th Value
+
+      tr
+        td Gender
+        td  #{artist.gender}
+
+
+      if artist.birth
+        if artist.birth.place && artist.birth.time
+          tr
+            td Birth place
+            td  #{artist.birth.place.name}
+          tr
+            td Birth year
+            td  #{artist.birth.time.startYear}
+        else if artist.birth.time
+          tr
+            td Birth year
+            td  #{artist.birth.time.startYear}
+
+      if artist.death
+        if artist.death.place && artist.death.time
+          tr
+            td Death place
+            td  #{artist.death.place.name}
+          tr
+            td Death year
+            td  #{artist.death.time.startYear}
+        else if artist.death.time
+          tr
+            td Death year
+            td  #{artist.death.time.startYear}
+
+      if artist.totalWorks
+        tr
+          td Total works
+          td  #{artist.totalWorks}
+
+    if artist.movements.length > 0
+      | Movements:
+      ul
+        each movement in artist.movements
+          li Era #{movement.era.name}, #{movement.name}
+
+    a(href="#{artist.url}" class="btn")
+      i(class="fa fa-info-circle")
+      |  More info

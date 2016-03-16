@@ -2,11 +2,13 @@ extends layout
 
 block content
   h1= title
-  | Acquisition year: From
-  input#inputFromArtworks(type='number', name='from', placeholder='YYYY', value="#{from}")
-  | To
-  input#inputToArtworks(type='number', name='to', placeholder='YYYY', value="#{to}")
-  button#btnSearchArtworks(type="submit") Go!
+  form.filter
+    | Acquisition year from #{''}
+    input#inputFromArtworks(type='number', name='from', placeholder='YYYY', value="#{from}")
+    |  to #{''}
+    input#inputToArtworks(type='number', name='to', placeholder='YYYY', value="#{to}")
+    =  ' '
+    button#btnSearchArtworks(type="submit") Go!
   #artworks(data-lastid="#{last_id}")
     ul
       each artwork in artworks

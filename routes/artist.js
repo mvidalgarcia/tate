@@ -7,10 +7,18 @@ router.get('/:id', function(req, res, next) {
   var collection = db.get('artists');
   var artist_id = parseInt(req.params.id);
   collection.findOne({id: {$eq: artist_id}},{},function(e, docs){
-    res.render('artist', {
-        "title": "Tate - Artist",
-        "artist" : docs
-    });
+    if (docs.birthYear > 1900) {
+      res.render('artist_new', {
+          "title": "Tate - Artist",
+          "artist" : docs
+      });
+    }
+    else {
+      res.render('artist', {
+          "title": "Tate - Artist",
+          "artist" : docs
+      });
+    }
   });
 });
 

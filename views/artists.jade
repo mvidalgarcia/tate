@@ -2,11 +2,13 @@ extends layout
 
 block content
   h1= title
-  | Birth year: From
-  input#inputFrom(type='number', name='from', placeholder='YYYY', value="#{from}")
-  | To
-  input#inputTo(type='number', name='to', placeholder='YYYY', value="#{to}")
-  button#btnSearch(type="submit") Go!
+  form.filter
+    | Birth year from 
+    input#inputFrom(type='number', name='from', placeholder='YYYY', value="#{from}")
+    |  to #{''}
+    input#inputTo(type='number', name='to', placeholder='YYYY', value="#{to}")
+    =  ' '
+    button#btnSearch(type="submit") Go!
   #artists
     ul
       each artist in artists

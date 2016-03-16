@@ -129,11 +129,52 @@ header h1 {
   -moz-column-count: 3;
 }
 
+.filter {
+  text-align: center;
+  padding: 10px 0 20px;
+}
+
+/* Artist content */
+.artist-content {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.btn {
+  background: #00B7FF;
+  color: white;
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 50px;
+  transition: all 0.5s ease 0s;
+}
+
+.btn:hover {
+  text-decoration: none;
+  background: white;
+  color: #00B7FF;
+}
+
+/* For table template */
+table {
+  margin: 20px auto;
+}
+
+table, th, td {
+   border: 1px solid black;
+}
+th, td {
+  width: 250px;
+}
+
+
 /* Footer */
 footer {
   background: black;
   color: white;
-  height: 175px;
+  height: 150px;
+  font-family: Consolas, monospace;
+
   display: flex;
   justify-content: center; /* align horizontal */
   align-items: center; /* align vertical */
@@ -142,6 +183,14 @@ footer {
 footer a:hover {
   text-decoration: none;
   color:
+}
+
+footer .fa-heart {
+  color: #D80000;
+}
+
+footer .fa-code {
+  color: white;
 }
 
 

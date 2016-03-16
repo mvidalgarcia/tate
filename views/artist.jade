@@ -1,28 +1,32 @@
 extends layout
 
 block content
-  h1 #{artist.fc}
-  p #{artist.gender}
+  .artist-content
+    h1 #{artist.fc}
 
-  if artist.birth
-    if artist.birth.place && artist.birth.time
-      p Born in #{artist.birth.place.name} in #{artist.birth.time.startYear}
-    else if artist.birth.time
-      p Born in #{artist.birth.time.startYear}
+    p #{artist.gender}
 
-  if artist.death
-    if artist.death.place && artist.death.time
-      p Died in #{artist.death.place.name} in #{artist.death.time.startYear}
-    else if artist.death.time
-      p Born in #{artist.death.time.startYear}
+    if artist.birth
+      if artist.birth.place && artist.birth.time
+        p Born in #{artist.birth.place.name} in #{artist.birth.time.startYear}
+      else if artist.birth.time
+        p Born in #{artist.birth.time.startYear}
 
-  if artist.totalWorks
-    p Total works: #{artist.totalWorks}
+    if artist.death
+      if artist.death.place && artist.death.time
+        p Died in #{artist.death.place.name} in #{artist.death.time.startYear}
+      else if artist.death.time
+        p Died in #{artist.death.time.startYear}
 
-  if artist.movements.length > 0
-    | Movements:
-    ul
-      each movement in artist.movements
-        li Era #{movement.era.name}, #{movement.name}
+    if artist.totalWorks
+      p Total works: #{artist.totalWorks}
 
-  a(href="#{artist.url}") More info
+    if artist.movements.length > 0
+      | Movements:
+      ul
+        each movement in artist.movements
+          li Era #{movement.era.name}, #{movement.name}
+
+    a(href="#{artist.url}" class="btn")
+      i(class="fa fa-info-circle")
+      |  More info
