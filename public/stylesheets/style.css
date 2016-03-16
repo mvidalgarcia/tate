@@ -134,8 +134,8 @@ header h1 {
   padding: 10px 0 20px;
 }
 
-/* Artist content */
-.artist-content {
+/* Artist and artwork content */
+.artist-content, .artwork-content {
   text-align: center;
   padding: 40px 0;
 }

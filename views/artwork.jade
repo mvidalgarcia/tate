@@ -1,28 +1,31 @@
 extends layout
 
 block content
-  h1 #{artwork.title}
-  if artwork.thumbnailUrl
-    p
-      img(src="#{artwork.thumbnailUrl}")
+  .artwork-content
+    h1 #{artwork.title}
+    if artwork.thumbnailUrl
+      p
+        img(src="#{artwork.thumbnailUrl}")
 
-  if artwork.acquisitionYear
-    p Acquisition year: #{artwork.acquisitionYear}
-    
-  if artwork.contributorCount > 0
-    | Contributors:
-    ul
-      each contributor in artwork.contributors
-        li
-          a(href="/artist/#{contributor.id}") #{contributor.fc}
+    if artwork.acquisitionYear
+      p Acquisition year: #{artwork.acquisitionYear}
 
-  if artwork.creditLine
-    p Credit: #{artwork.creditLine}
+    if artwork.contributorCount > 0
+      | Contributors:
+      ul
+        each contributor in artwork.contributors
+          li
+            a(href="/artist/#{contributor.id}") #{contributor.fc}
 
-  if artwork.medium
-    p Medium: #{artwork.medium}
+    if artwork.creditLine
+      p Credit: #{artwork.creditLine}
 
-  if artwork.dimensions
-    p Dimensions: #{artwork.dimensions}
+    if artwork.medium
+      p Medium: #{artwork.medium}
 
-  a(href="#{artwork.url}") More info
+    if artwork.dimensions
+      p Dimensions: #{artwork.dimensions}
+
+    a(href="#{artwork.url}" class="btn")
+      i(class="fa fa-info-circle")
+      |  More info
